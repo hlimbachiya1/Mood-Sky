@@ -2,17 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MoodSky - Weather-Based Music</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>MoodSky</h1>
-    <p>Let the weather decide your music!</p>
-    <button id="login-btn">Login with Spotify</button>
-  </div>
   
-  <script src="script.js"></script>
+  <!-- Meta tag for ensuring proper rendering on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodSky - Weather & Music</title>
+
+  <!-- Linking external CSS for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+  
+<body>
+
+   <!-- Page header with the title -->
+  <header>
+    <h1>MoodSky - Your Weather Based Music Mood</h1>
+  </header>
+
+  <!-- Section for entering the Zipcode to get weather and music -->
+  <section id="weather-form">
+    <label for="zipcode">Enter your Zipcode:</label>
+     <!-- Input field for entering the zipcode -->
+    <input type="text" id="zipcode" placeholder="Zipcode">
+    <!-- Button to trigger the weather-fetching process -->
+    <button id="get-weather">Get Weather</button>
+  </section>
+    
+  <!-- Section to display weather information and suggested songs -->
+  <section id="weather-info" style="display: none;">
+    <h2>Weather Info</h2>
+    <!-- Placeholder for displaying temperature -->
+    <p id="temperature"></p>
+    <!-- Placeholder for displaying weather conditions -->
+    <p id="condition"></p>
+    
+    <div id="song-list">
+      <h2>Suggested Songs</h2>
+
+      <!-- Container for dynamically generated song tiles -->
+      <div id="song-tiles" class="song-tiles-container"></div>
+    </div>
+  </section>
+
+  <!-- Footer for additional information or credits -->
+  <footer>
+    <p>Built with help of Open Meteo & Spotify</p>
+  </footer>
+
+  <!-- Linking the JavaScript file -->
+  <script type="module" src="main.js"></script>
 </body>
 </html>
