@@ -1,45 +1,158 @@
-/* Basic reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.container {
+/* This app portion came with the replit template. I just added a bit more*/
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: red;
+  margin-top: 60px;
+  flex: 1; /* Allows the app content to grow and fill space */
+}
+
+/* Base Colors */
+:root {
+  --red-pantone: #e63946ff; /* Bold red for action items */
+  --honeydew: #f1faeeff; /* Soft light background color */
+  --non-photo-blue: #a8dadcff; /* Muted blue for secondary elements */
+  --cerulean: #457b9dff; /* Rich blue for headings/subheaders */
+  --berkeley-blue: #1d3557ff; /* Dark blue for text and dark background */
+}
+
+
+/* Body and general page styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--honeydew); /* Soft light background */
+  color: var(--berkeley-blue); /* Dark text for high contrast */
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--berkeley-blue); /* Dark header for depth */
+  color: var(--honeydew);
+  text-align: center;
+  padding: 20px;
 }
 
 h1 {
-  font-size: 3em;
-  color: #4CAF50;
+  font-size: 2.5rem;
+  margin: 0;
+  color: var(--cerulean); /* Heading in cerulean */
 }
 
-p {
-  font-size: 1.2em;
-  margin: 20px 0;
+/* Form Inputs and Buttons */
+#weather-form {
+  margin-bottom: 30px;
+}
+
+#zipcode {
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+  border: 2px solid var(--cerulean); /* Subtle blue border */
+  border-radius: 5px;
+  transition: border-color 0.2s ease;
+}
+
+#zipcode:focus {
+  padding: 10px;
+  border-color: var(--red-pantone); /* Red border on focus */
+  outline: none;
 }
 
 button {
-  background-color: #1DB954;
-  color: white;
+  padding: 10px 20px;
+  background-color: var(--red-pantone); /* Red background for buttons */
+  color: var(--honeydew);
   border: none;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: #1ed760;
+  background-color: var(--non-photo-blue); /* Muted blue hover effect */
+}
+
+/* Weather Information Section */
+#weather-info {
+  background-color: var(--cerulean); /* Rich blue for weather info */
+  color: var(--honeydew);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+#temperature, #condition {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Song Tile Section */
+#song-list {
+  margin-top: 20px;
+}
+
+#song-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.song-tile {
+  width: 200px;
+  height: 200px;
+  background-color: var(--non-photo-blue); /* Light blue background */
+  border-radius: 8px;
+  scroll-padding-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.song-tile:hover {
+  transform: scale(1.05); /* Slight hover effect */
+  background-color: #000000; /* #000000 = black; I can also use background-color: var(--cerulean); Darker blue hover */
+}
+
+.song-tile img {
+  width: 80%;
+  height: 80%;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--berkeley-blue); /* Dark footer for consistency */
+  color: var(--honeydew);
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  margin-top: auto; /* Footer stays to the bottom */
+}
+
+ /* this is part is still work in progress. so can be ignored */
+/* Sunny Gradient */
+.sunny-gradient {
+  background: linear-gradient(135deg, #FFD700, #FF6347); /* A warm gradient for sunny weather */
+}
+
+/* Cloudy Gradient */
+.cloudy-gradient {
+  background: linear-gradient(135deg, #B0C4DE, #A9A9A9); /* A cool, muted gradient for cloudy weather */
+}
+
+/* Snowy Gradient */
+.snowy-gradient {
+  background: linear-gradient(135deg, #B0E0E6, #FFFFFF); /* A frosty gradient for snowy weather */
 }
