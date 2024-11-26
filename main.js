@@ -9,7 +9,8 @@ const songTilesElement = document.getElementById("song-tiles");
 // Api endpoints
 const openMeteoAPI = "https://geocoding-api.open-meteo.com/v1/search?name=";
 const weatherAPI = "https://api.open-meteo.com/v1/forecast?";
-const spotifyAPI = "https://api.spotify.com/v1/recommendations?limit=5&seed_genres=";
+const spotifyAPI =
+  "https://api.spotify.com/v1/recommendations?limit=5&seed_genres=";
 
 // Fetch weather data based on the provided zipcode
 async function getWeatherData(zipcode) {
@@ -17,7 +18,10 @@ async function getWeatherData(zipcode) {
     const location = await getLocation(zipcode); // Get latitude and longitude from zipcode
     if (!location) return;
 
-    const weatherData = await fetchWeather(location.latitude, location.longitude); // Fetch weather data
+    const weatherData = await fetchWeather(
+      location.latitude,
+      location.longitude,
+    ); // Fetch weather data
     const temperature = weatherData.temperature_2m.pop(); // Get the latest temperature
     const weatherCode = weatherData.weathercode.pop(); // Get the Latest weather code
 
@@ -28,7 +32,6 @@ async function getWeatherData(zipcode) {
 
     weatherInfoSection.style.display = "block"; // Show the weather info section
 
-    
     getSpotifySongs(weatherCondition); // Fetch and display Spotify songs based on weather condition
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -61,37 +64,37 @@ async function fetchWeather(latitude, longitude) {
 // Map weather code to a readable weather condition
 function getWeatherCondition(weatherCode) {
   const conditions = {
-    0: 'Clear sky',
-    1: 'Mainly clear, partly cloudy, and overcast',
-    2: 'Mainly clear, partly cloudy, and overcast',
-    3: 'Mainly clear, partly cloudy, and overcast',
-    45: 'Fog and depositing rime fog',
-    48: 'Fog and depositing rime fog',
-    51: 'Drizzle: Light, moderate, and dense intensity',
-    53: 'Drizzle: Light, moderate, and dense intensity',
-    55: 'Drizzle: Light, moderate, and dense intensity',
-    56: 'Freezing Drizzle: Light and dense intensity',
-    57: 'Freezing Drizzle: Light and dense intensity',
-    61: 'Rain: Slight, moderate, and heavy intensity',
-    63: 'Rain: Slight, moderate, and heavy intensity',
-    65: 'Rain: Slight, moderate, and heavy intensity',
-    66: 'Freezing Rain: Light and heavy intensity',
-    67: 'Freezing Rain: Light and heavy intensity',
-    71: 'Snow fall: Slight, moderate, and heavy intensity',
-    73: 'Snow fall: Slight, moderate, and heavy intensity',
-    75: 'Snow fall: Slight, moderate, and heavy intensity',
-    77: 'Snow grains',
-    80: 'Rain showers: Slight, moderate, and violent',
-    81: 'Rain showers: Slight, moderate, and violent',
-    82: 'Rain showers: Slight, moderate, and violent',
-    85: 'Snow showers: Slight and heavy',
-    86: 'Snow showers: Slight and heavy',
-    95: 'Thunderstorm: Slight or moderate',
-    96: 'Thunderstorm with slight and heavy hail',
-    99: 'Thunderstorm with slight and heavy hail'
+    0: "Clear sky",
+    1: "Mainly clear, partly cloudy, and overcast",
+    2: "Mainly clear, partly cloudy, and overcast",
+    3: "Mainly clear, partly cloudy, and overcast",
+    45: "Fog and depositing rime fog",
+    48: "Fog and depositing rime fog",
+    51: "Drizzle: Light, moderate, and dense intensity",
+    53: "Drizzle: Light, moderate, and dense intensity",
+    55: "Drizzle: Light, moderate, and dense intensity",
+    56: "Freezing Drizzle: Light and dense intensity",
+    57: "Freezing Drizzle: Light and dense intensity",
+    61: "Rain: Slight, moderate, and heavy intensity",
+    63: "Rain: Slight, moderate, and heavy intensity",
+    65: "Rain: Slight, moderate, and heavy intensity",
+    66: "Freezing Rain: Light and heavy intensity",
+    67: "Freezing Rain: Light and heavy intensity",
+    71: "Snow fall: Slight, moderate, and heavy intensity",
+    73: "Snow fall: Slight, moderate, and heavy intensity",
+    75: "Snow fall: Slight, moderate, and heavy intensity",
+    77: "Snow grains",
+    80: "Rain showers: Slight, moderate, and violent",
+    81: "Rain showers: Slight, moderate, and violent",
+    82: "Rain showers: Slight, moderate, and violent",
+    85: "Snow showers: Slight and heavy",
+    86: "Snow showers: Slight and heavy",
+    95: "Thunderstorm: Slight or moderate",
+    96: "Thunderstorm with slight and heavy hail",
+    99: "Thunderstorm with slight and heavy hail",
     // Add other mappings as needed
   };
-  
+
   // Return mapped condition or "Unknown" if not found
   return conditions[weatherCode] || "Unknown";
 }
@@ -99,24 +102,24 @@ function getWeatherCondition(weatherCode) {
 // Fetch Spotify songs based on the weather condition
 async function getSpotifySongs(weatherCondition) {
   const moodMapping = {
-    'Clear sky': 'chill',
-    'Mainly clear, partly cloudy, and overcast': 'indie',
-    'Fog and depositing rime fog': 'ambient',
-    'Drizzle: Light, moderate, and dense intensity': 'acoustic',
-    'Freezing Drizzle: Light and dense intensity': 'classical',
-    'Rain: Slight, moderate, and heavy intensity': 'jazz',
-    'Freezing Rain: Light and heavy intensity': 'blues',
-    'Snow fall: Slight, moderate, and heavy intensity': 'classical',
-    'Snow grains': 'folk',
-    'Rain showers: Slight, moderate, and violent': 'pop',
-    'Snow showers: Slight and heavy': 'instrumental',
-    'Thunderstorm: Slight or moderate': 'rock',
-    'Thunderstorm with slight and heavy hail': 'metal',
-    'Unknown': 'electronic',
+    "Clear sky": "chill",
+    "Mainly clear, partly cloudy, and overcast": "indie",
+    "Fog and depositing rime fog": "ambient",
+    "Drizzle: Light, moderate, and dense intensity": "acoustic",
+    "Freezing Drizzle: Light and dense intensity": "classical",
+    "Rain: Slight, moderate, and heavy intensity": "jazz",
+    "Freezing Rain: Light and heavy intensity": "blues",
+    "Snow fall: Slight, moderate, and heavy intensity": "classical",
+    "Snow grains": "folk",
+    "Rain showers: Slight, moderate, and violent": "pop",
+    "Snow showers: Slight and heavy": "instrumental",
+    "Thunderstorm: Slight or moderate": "rock",
+    "Thunderstorm with slight and heavy hail": "metal",
+    Unknown: "electronic",
   };
 
   const genre = moodMapping[weatherCondition] || "ambient"; // Map weather to genre
-  
+
   const response = await fetch(`/api/recommendations?genre=${genre}`); // Fetch song recommendations
   console.log(response);
 
@@ -131,11 +134,10 @@ async function getSpotifySongs(weatherCondition) {
 
 // Display song recommendations in the UI
 function displaySongs(songs) {
-  songTilesElement.innerHTML = "";  //clear previous songs titles
+  songTilesElement.innerHTML = ""; //clear previous songs titles
   songs.forEach((song) => {
     const tile = document.createElement("div");
     tile.className = "song-tile";
-    
 
     const songImage = document.createElement("img"); // Add album image
     songImage.src = song.album.images[0].url;
@@ -150,8 +152,6 @@ function displaySongs(songs) {
   });
 }
 
-
-
 // Add event listener to the "Get Weather" button
 weatherButton.addEventListener("click", () => {
   const zipcode = zipcodeInput.value.trim(); // Get user-inputted zipcode
@@ -161,4 +161,3 @@ weatherButton.addEventListener("click", () => {
   }
   getWeatherData(zipcode); // Fetch weather data for the entered zipcode
 });
-
