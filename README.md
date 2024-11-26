@@ -53,11 +53,12 @@ Tired of searching for the perfect playlist? Let the weather do the work! MoodSk
 ## Try It Online
 You can try the app directly on Replit: https://replit.com/@HemangLimbachiy/MoodSky 
 
-# Tutorial 
+# Tutorial (Replit + VS Code)
 
 ** Presteps: Go to the spotify API link and make a developer account by following these getting started steps in this link. https://developer.spotify.com/documentation/web-api 
 ** For the 'Redirect URL portion' you can add the "link of the forked replit of your own copy" in there from the above section. This will help you get your own unique client id and client secret.
 
+## Replit Approach
 ** Step 0: Go to the Secrets tab of the replit and save your client id and secret as such.
     ![image](image_9.png)
     
@@ -82,13 +83,35 @@ You can try the app directly on Replit: https://replit.com/@HemangLimbachiy/Mood
 ** Step 8: maximize the pane using the opposite diagonal arrows.
     ![image](image_7.png)
 
-** Step 9: Type in the zipcode and "click" the 'Get Weather button'.
+** Step 9: Type in the zipcode and "**click**" the 'Get Weather button'.
     ![image](image_8.png)
 
 ** Step 10: this should be the output you should be getting.
     ![image](image_10.png)
-    
-    
+
+    -----
+## VS Code approach
+** Step 1: clone this Mood Sky repo
+
+** Step 2: open in VS Code
+
+** Step 3: run npm install in the terminal
+
+** Step 4: create a file called .env with the spotify Client ID and Secret (see screenshot for example)
+**   ![image](https://github.com/user-attachments/assets/74627c38-8917-48a1-beb6-2318af34a9a9)
+
+** Step 5: Run the shell command  'node server.js'
+
+** Step 6: Now make another shell (different form the prior step's shell) and run the shell command 'npm run dev'
+
+** Step 7: When you run npm dev click the blue link to run the app as it will redirect you to the app.
+    ![image](https://github.com/user-attachments/assets/0e0c7265-3773-4da5-aec0-8eded4bfd312)
+
+** Step 8: This is what it should look like
+    ![image](https://github.com/user-attachments/assets/51df7d34-ded5-4882-a2e3-5403779f25ae)
+
+** Step 9: And follow the steps 9-10 from the replit approach and you should get a similar output based on your zipcode.
+    ![image](https://github.com/user-attachments/assets/49cf8f3c-7f04-49ff-9886-f2ca935fdf6b)
 
 # Contact 📧
 ** Hemang Limbachiya
