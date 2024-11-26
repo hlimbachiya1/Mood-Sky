@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require('dotenv').config(); // Load environment variables from a .env file
 
 // Import necessary modules (look at package files)
@@ -21,10 +22,27 @@ async function getToken() {
   }
 
   // Request a new access token from Spotify using the client credentials flow
+=======
+require('dotenv').config();
+const express = require('express');
+const app = express();
+
+const SPOTIFY_CLIENT_ID = process.env['SPOTIFY_CLIENT_ID'];
+const SPOTIFY_SECRET = process.env['SPOTIFY_CLIENT_SECRET'];
+
+let cachedToken = null;
+let tokenExpiration = null;
+
+async function getToken() {
+  if (cachedToken && Date.now() < tokenExpiration) {
+    return cachedToken;
+  }
+>>>>>>> feb2a0b (Initial commit)
   const response = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     body: new URLSearchParams({
       'grant_type': 'client_credentials',
+<<<<<<< HEAD
     }), // reqyest type
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded', // required content type
@@ -43,10 +61,30 @@ app.get('/api/recommendations', async (req, res) => {
   const { genre } = req.query; // Extract the genre from the query parameters
   
   if (!genre) { // If the genre is not provided, return an error
+=======
+    }),
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + (Buffer.from(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_SECRET).toString('base64')),
+    },
+  });
+
+  const data = await response.json();
+  cachedToken = data.access_token;
+  tokenExpiration = Date.now() + data.expires_in * 1000;
+  return data.access_token;
+}
+
+// Endpoint to fetch recommendations
+app.get('/api/recommendations', async (req, res) => {
+  const { genre } = req.query;
+  if (!genre) {
+>>>>>>> feb2a0b (Initial commit)
     return res.status(400).json({ error: 'Genre is required' });
   }
 
   try {
+<<<<<<< HEAD
     // fetch a valid spotify access token
     const token = await getToken();
 
@@ -56,10 +94,18 @@ app.get('/api/recommendations', async (req, res) => {
     });
 
     // handle the errors when the Spotify API requests fails
+=======
+    const token = await getToken();
+    const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=5&seed_genres=${genre}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+>>>>>>> feb2a0b (Initial commit)
     if (!response.ok) {
       throw new Error('Failed to fetch recommendations');
     }
 
+<<<<<<< HEAD
     // Parse (breakdown) the Spotify API response
     const data = await response.json();    
     console.log('Tracks found!');
@@ -68,12 +114,22 @@ app.get('/api/recommendations', async (req, res) => {
     res.json(data.tracks);
   } catch (error) {
     //log error and return 500 Internal Server Error response
+=======
+    const data = await response.json();
+    console.log('Tracks found!');
+    res.json(data.tracks);
+  } catch (error) {
+>>>>>>> feb2a0b (Initial commit)
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+<<<<<<< HEAD
 // Start server, [specified default port = 3000]
+=======
+// Start server
+>>>>>>> feb2a0b (Initial commit)
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mood Music - Weather and Music Recommendation App 🎵🌤️
 
 Tired of searching for the perfect playlist? Let the weather do the work! MoodSky suggests music based on real-time weather, so you can enjoy songs that match the vibe of your day, whether sunny, rainy, or anything in between. A simple web application that combines real-time weather information and music recommendations. Enter a ZIP code to view the current weather and get a curated playlist to match the mood of the weather.
@@ -95,3 +96,14 @@ You can try the app directly on Replit: https://replit.com/@HemangLimbachiy/Mood
 # Contact 📧
 Hemang Limbachiya
 GitHub: hlimbachiya1 (Hawkybrain)
+=======
+# Vite ⚡
+
+> Next Generation Frontend Tooling
+
+All you need to do is hit run and start making changes which will be updated live.
+
+You can add install and use npm packages, you can use the Packager tool to search and manage your packages.
+
+[Read the Docs to Learn More](https://vitejs.dev) and configure your frontend application.
+>>>>>>> feb2a0b (Initial commit)
