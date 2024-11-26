@@ -122,5 +122,5 @@ You can try the app directly on Replit: https://replit.com/@HemangLimbachiy/Mood
 ** Seth Traman (https://github.com/stickyfingies)
 ** For helping fix replit and github repo.
 
-** Hammad Khan ()
+** Hammad Khan (https://github.com/hammadak10)
 ** For mentoring with backend.
