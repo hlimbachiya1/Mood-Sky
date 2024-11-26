@@ -1,4 +1,4 @@
-# Mood Music - Weather and Music Recommendation App 🎵🌤️
+# Mood Sky - Weather and Music Recommendation App 🎵🌤️
 
 Tired of searching for the perfect playlist? Let the weather do the work! MoodSky suggests music based on real-time weather, so you can enjoy songs that match the vibe of your day, whether sunny, rainy, or anything in between. A simple web application that combines real-time weather information and music recommendations. Enter a ZIP code to view the current weather and get a curated playlist to match the mood of the weather.
 
@@ -55,43 +55,49 @@ You can try the app directly on Replit: https://replit.com/@HemangLimbachiy/Mood
 
 # Tutorial 
 
+** Presteps: Go to the spotify API link and make a developer account by following these getting started steps in this link. https://developer.spotify.com/documentation/web-api 
+** For the 'Redirect URL portion' you can add the "link of the forked replit of your own copy" in there from the above section. This will help you get your own unique client id and client secret.
+
+** Step 0: Go to the Secrets tab of the replit and save your client id and secret as such.
+    ![image](image_9.png)
+    
 ** Step 1: Go to the replit link in the 'try it online' step above.  
 ** Step 2: Click on the green 'fork' button on the top-right corener. This will make a personal copy for you. But you might have make a Replit account if you don't have one.
     ![image](image.png)
 ** Step 3: Rename it to "MoonSky_Fork_copy" and then click 'Fork Repl' as shown in this image.
     ![image](image_2.png)
 
-** Step4: Go to the spotify API link and make a developer account by following these getting started steps in this link. https://developer.spotify.com/documentation/web-api 
-** For the 'Redirect URL portion' you can add the "link of the forked replit of your own copy" in there from the above section. This will help you get your own unique client id and client secret.
-
-** Step 5: Go to the Secrets tab of the replit and save your client id and secret as such.
-    ![image](image_9.png)
-    
-** Step 6: Click on Shell on the bottom-left corver under the Tools. look at this image for reference
+** Step 4: Click on Shell on the bottom-left corver under the Tools. look at this image for reference
     ![image](image_3.png)
 
-** Step 7: Type in command "node server.js". This is will open a webview tab on top-right.
+** Step 5: Type in command "node server.js". This is will open a webview tab on top-right.
     ![image](image_4.png)
 
-** Step 8: now click "RUN" at the top center of the page.
+** Step 6: now click "RUN" at the top center of the page.
     ![image](image_5.png)
 
-** Step 9: now click on the {...} green icon on the webview pane and change the ports to 5173-->80.
+** Step 7: now click on the {...} green icon on the webview pane and change the ports to 5173-->80.
     ![image](image_6.png)
     
-** Step 10: maximize the pane using the opposite diagonal arrows.
+** Step 8: maximize the pane using the opposite diagonal arrows.
     ![image](image_7.png)
 
-** Step 11: Type in the zipcode and "click" the 'Get Weather button'.
+** Step 9: Type in the zipcode and "click" the 'Get Weather button'.
     ![image](image_8.png)
 
-** Step 12: this should be the output you should be getting.
+** Step 10: this should be the output you should be getting.
     ![image](image_10.png)
     
-
-
     
 
 # Contact 📧
-Hemang Limbachiya
-GitHub: hlimbachiya1 (Hawkybrain)
+** Hemang Limbachiya
+** GitHub: hlimbachiya1 (Hawkybrain)
+
+# Special Thanks
+
+** Seth Traman (https://github.com/stickyfingies)
+** For helping fix replit and github repo.
+
+** Hammad Khan ()
+** For mentoring with backend.
